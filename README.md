@@ -19,17 +19,19 @@ For example, these summary statistics are saved as sumstats and the covariance m
 
 Using the script [split_sumstats.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/split_sumstats.R) in R. This script chooses to split the SNPs up into sets of 8000. If you wish, you can change how large you would like each set of SNPs to be. The larger the sets, the less jobs you will run, but the longer those jobs will take. You may also want to consider how many jobs you are able to submit (RC can't submit more than 1000, I think).
 
-There are two outputs from this script: (1) the new summary statistics object saved as "split_sumstats.RData" and (2) the number of SNP subsets created which is saved as "num_SNP_sets.txt". The number of subsets created determines how many jobs must be ran.
+There are two outputs from this script: (1) the new summary statistics object saved as "split_sumstats.RData" and (2) the number of SNP subsets created which is saved as "num_SNP_sets.txt". The number of subsets created determines how many jobs must be ran (see part 3).
 
 ### Part 2: Create an R script that runs the specific GWAS you wish to perform
 
 An example of this script is located in [multi_GWAS.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/multi_GWAS.R). This script only runs for one subset of SNPs, identified using the variable "NUMBER", which is later replaced. This script will be the basis for all runs using each subset of SNPs. One thing to note is that this script identifies a common factor GWAS, but can be used with user-specified GWASs as long as the script is edited.
 
-An example script using a 3 factor user GWAS is also available in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/multi_GWAS_3Fs.R).
+An example script using a 3 factor user GWAS is also available in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/multi_GWAS_3Fs.R). If you wish to use this script make sure to save the filename as multi_GWAS.R to be compatible with subsequent scripts.
 
 
 ### Part 3: Run the GWAS for each subset of SNPs.
 Using the bash script [multi_GWAS.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/multi_GWAS.bash), you can run a separate job for each set of SNPs that will create an R script using that subset of SNPs, run that Rscript and then save the output into a results directory. In this script make sure to set the number of jobs to the number of SNPs subsets!
 
 ### Part 4: Compile your results files
-Use the script [cat_results.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/cat_results.bash) to combine all of your results files into one set of summary statistics for a factor. This file will be saved as CF_sumstats.txt.
+Use the script [cat_results.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/cat_results.bash) to combine all of your results files into one set of summary statistics for a common factor. This file will be saved as CF_sumstats.txt.
+
+To compile your results into multiple sets of summary statistics for multiple factors, you may wish to use the script [cat_results_3Fs.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/cat_results_3Fs.bash).
