@@ -10,6 +10,10 @@ These scripts should be run in a directory which already contains:
 * an "outerr" directory
 * a "code" directory
 * a "results" directory
+  * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc.  
+
+You should also make sure to check what your objects are saved as, so that they are compatible with these scripts.
+For example, these summary statistics are saved as sumstats and the covariance matrix is saved as LDSCoutput.
 
 ### Part 1: Splitting up the summary statistics
 
@@ -19,7 +23,9 @@ There are two outputs from this script: (1) the new summary statistics object sa
 
 ### Part 2: Create an R script that runs the specific GWAS you wish to perform
 
-An example of this script is located in [multi_GWAS.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/multi_GWAS.R). This script only runs for one subset of SNPs, identified using the variable "NUMBER", which is later replaced. This script will be the basis for all runs using each subset of SNPs. One thing to note is that this script identifies a common factor GWAS, but can be used with user-specified GWASs as long as the script is edited. 
+An example of this script is located in [multi_GWAS.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/multi_GWAS.R). This script only runs for one subset of SNPs, identified using the variable "NUMBER", which is later replaced. This script will be the basis for all runs using each subset of SNPs. One thing to note is that this script identifies a common factor GWAS, but can be used with user-specified GWASs as long as the script is edited.
+
+An example script using a 3 factor user GWAS is also available in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/multi_GWAS_3Fs.R).
 
 
 ### Part 3: Run the GWAS for each subset of SNPs.
@@ -27,5 +33,3 @@ Using the bash script [multi_GWAS.bash](https://github.com/sarahcolbert/quickSEM
 
 ### Part 4: Compile your results files
 Use the script [cat_results.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/cat_results.bash) to combine all of your results files into one set of summary statistics for a factor. This file will be saved as CF_sumstats.txt.
-
-
