@@ -2,12 +2,14 @@
 #SBATCH -J multi-GWAS
 #SBATCH --qos=preemptable
 #SBATCH --mem=50gb
-#SBATCH -t 10:00:00
+#SBATCH -t 20:00:00
 #SBATCH --output=../outerr/test.%a.out
 #SBATCH --error=../outerr/test.%a.err
 #SBATCH --array=1-#OF SNP SUBSETS
 
+### display time at beginning and end of script to track how long it takes
 date
+### display node that job was run on
 hostname
 
 ### set variable that will be the number of the SNP set
