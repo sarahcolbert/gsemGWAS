@@ -7,7 +7,7 @@
 #SBATCH --mem=1000
 #SBATCH --output=./outerr/combine.out
 #SBATCH --error=./outerr/combine.err
-#SBATCH --1-3
+#SBATCH --array=1-3
 
 date
 hostname
