@@ -36,7 +36,7 @@ CommonFactor[[1]]$rhs <- NULL
 ### remove any rows that produce a warning
 CF1 <- filter(CommonFactor[[1]], warning==0)
 
-write.table(CF1, file="../results/F1_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
+write.table(CF1, file="./results/F1_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
 
 ### remove unnecessary columns from the dataframe
 CommonFactor[[2]]$free <- NULL
@@ -48,7 +48,7 @@ CommonFactor[[2]]$rhs <- NULL
 ### remove any rows that produce a warning
 CF2 <- filter(CommonFactor[[2]], warning==0)
 
-write.table(CF2, file="../results/F2_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
+write.table(CF2, file="./results/F2_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
 
 ### remove unnecessary columns from the dataframe
 CommonFactor[[3]]$free <- NULL
@@ -60,4 +60,4 @@ CommonFactor[[3]]$rhs <- NULL
 ### remove any rows that produce a warning
 CF3 <- filter(CommonFactor[[3]], warning==0)
 
-write.table(CF2, file="../results/F3_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
+write.table(CF2, file="./results/F3_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
