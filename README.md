@@ -17,7 +17,7 @@ For example, these summary statistics are saved as sumstats and the covariance m
 
 ### Part 1: Splitting up the summary statistics
 
-Using the script [split_sumstats.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/split_sumstats.R) in R. This script chooses to split the SNPs up into sets of 8000. If you wish, you can change how large you would like each set of SNPs to be. The larger the sets, the less jobs you will run, but the longer those jobs will take. You may also want to consider how many jobs you are able to submit (RC can't submit more than 1000, I think).
+Using the script [split_sumstats.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/split_sumstats.R) in R. This script chooses to split the SNPs up into sets of 8000. If you wish, you can change how large you would like each set of SNPs to be. The larger the sets, the less jobs you will run, but the longer those jobs will take. You may also want to consider how many jobs you are able to submit (RC can't submit more than 1000, I think). You may also wish to only run a certain number of jobs at a time as to not hog resources, particularly if using multiple CPUs.
 
 There are two outputs from this script: (1) the new summary statistics object saved as "split_sumstats.RData" and (2) the number of SNP subsets created which is saved as "num_SNP_sets.txt". The number of subsets created determines how many jobs must be ran (see part 3).
 

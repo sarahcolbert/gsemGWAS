@@ -2,7 +2,8 @@
 #SBATCH -J multi-GWAS
 #SBATCH --qos=preemptable
 #SBATCH --mem=50gb
-#SBATCH -t 20:00:00
+#SBATCH -t 10:00:00
+#SBATCH --ntasks=4
 #SBATCH --output=../outerr/test.%a.out
 #SBATCH --error=../outerr/test.%a.err
 #SBATCH --array=1-#OF SNP SUBSETS
