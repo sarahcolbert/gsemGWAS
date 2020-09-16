@@ -18,7 +18,7 @@ cc="${SLURM_ARRAY_TASK_ID}"
 ### concatenate all results files
 cat ./results/F"$cc"_sumstats/*.txt > ./results/F"$cc"_sumstats/F"$cc"_stats.txt
 ### remove error and warning columns
-awk '{$11=$12=""; print $0}' ./results/F"$cc"_sumstats/F"$cc"_stats.txt > ./results/F"$cc"_sumstats/f"$cc"_sumstats.txt
+awk '{$11=$12=""; print $0}' ./results/F"$cc"_sumstats/F"$cc"_stats.txt > ./results/F"$cc"_sumstats/F"$cc"_sumstats.txt
 ### remove intermediate files
 rm ./results/F"$cc"_sumstats/F"$cc"_stats.txt
 rm ./code/*.R
