@@ -4,8 +4,8 @@
 #SBATCH --mem=50gb
 #SBATCH -t 10:00:00
 #SBATCH --ntasks=4
-#SBATCH --output=../outerr/test.%a.out
-#SBATCH --error=../outerr/test.%a.err
+#SBATCH --output=./outerr/test.%a.out
+#SBATCH --error=./outerr/test.%a.err
 #SBATCH --array=1-#OF SNP SUBSETS
 
 ### display time at beginning and end of script to track how long it takes
