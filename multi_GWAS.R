@@ -22,4 +22,4 @@ CommonFactor$rhs <- NULL
 ### remove any rows that produce a warning
 CF <- filter(CommonFactor, warning==0)
 
-write.table(CF, file="../results/NUMBER.txt", row.names=FALSE, quote=FALSE)
+write.table(CF, file="./results/NUMBER.txt", row.names=FALSE, quote=FALSE)
