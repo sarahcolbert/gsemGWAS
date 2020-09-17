@@ -60,4 +60,4 @@ CommonFactor[[3]]$rhs <- NULL
 ### remove any rows that produce a warning
 CF3 <- filter(CommonFactor[[3]], warning==0)
 
-write.table(CF2, file="./results/F3_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
+write.table(CF3, file="./results/F3_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
