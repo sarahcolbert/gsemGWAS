@@ -1,9 +1,10 @@
 #!/bin/bash
 #SBATCH -J multi-GWAS
 #SBATCH --qos=preemptable
-#SBATCH --mem=50gb
+#SBATCH --mem=10gb
 #SBATCH -t 10:00:00
 #SBATCH --ntasks=4
+#SBATCH -N 1-1
 #SBATCH --output=./outerr/test.%a.out
 #SBATCH --error=./outerr/test.%a.err
 #SBATCH --array=1-#OF SNP SUBSETS
