@@ -2,11 +2,12 @@
 #SBATCH -J multi-GWAS
 #SBATCH --qos=preemptable
 #SBATCH --mem=10gb
-#SBATCH -t 10:00:00
-#SBATCH --ntasks=4
-#SBATCH -N 1-1
-#SBATCH --output=./outerr/test.%a.out
-#SBATCH --error=./outerr/test.%a.err
+#SBATCH -t 02:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --output=./outerr/set.%a.out
+#SBATCH --error=./outerr/set.%a.err
 #SBATCH --array=1-#OF SNP SUBSETS
 
 ### display time at beginning and end of script to track how long it takes
