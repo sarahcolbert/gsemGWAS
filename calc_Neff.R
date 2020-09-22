@@ -1,0 +1,8 @@
+### Read in summary statistics for latent factor which you wish to calculate Neff for
+factor <- read.table("FNUMBER_sumstats.txt", header = TRUE)
+
+### Calculate Neff using equation from Mallard et al.
+Effective_N<-(mean(((factor$Z_Estimate/factor$est)^2)/(2*factor$MAF*(1-factor$MAF))))
+
+### Save Neff estimate to file
+write.table(Effective_N, file="./results/FNUMBER_Neff.txt")
