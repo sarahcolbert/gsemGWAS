@@ -1,4 +1,4 @@
-# Optimizing genomic-SEM GWAS for quicker completion by performing jobs for smaller sets of SNPs
+# Optimizing genomic-SEM GWAS for faster completion
 
 
 This github repository outlines a framework used to run genomic-SEM for a large number of SNP sets.
