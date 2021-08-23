@@ -12,7 +12,7 @@ date
 ### display node that job was run on
 hostname
 
-### set variable that will be the number of the SNP set
+### set variable that will be the number of factors
 cc="${SLURM_ARRAY_TASK_ID}"
 
 ### replace "NUMBER" variable in R script with the number of the factor the job is running
