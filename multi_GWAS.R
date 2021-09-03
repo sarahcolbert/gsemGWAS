@@ -4,13 +4,13 @@ require(GenomicSEM)
 library(dplyr)
 
 ### load the summary statistics RData file in the split form
-load("split_sumstats.RData")
+split_sumstats <- read.table("./split_sumstats/sumstatsNUMBER.txt", header = TRUE)
 
 ### load the LDSC covariance matrix
 load("LDSCoutput.RData")
 
 ### run a common factor model for one subset of SNPs
-CommonFactor <- commonfactorGWAS(covstruc=LDSCoutput, SNPs=split_sumstats[[NUMBER]])
+CommonFactor <- commonfactorGWAS(covstruc=LDSCoutput, SNPs=split_sumstats)
 
 ### remove unnecessary columns from the dataframe
 CommonFactor$free <- NULL

@@ -9,6 +9,7 @@ These scripts should be run in a directory which already contains:
 * an RData file with the G-SEM generated summary statistics (sumstats.RData)
 * an "outerr" directory
 * a "code" directory
+* a "split_sumstats" directory
 * a "results" directory
   * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc.  
 
@@ -19,7 +20,7 @@ For example, these summary statistics are saved as sumstats and the covariance m
 
 Using the script [split_sumstats.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/split_sumstats.R) in R. This script chooses to split the SNPs up into sets of 8000. If you wish, you can change how large you would like each set of SNPs to be. The larger the sets, the less jobs you will run, but the longer those jobs will take. You should also take into consideration how many jobs you are able to submit/should submit as to not hog resources, particularly if using multiple CPUs.
 
-There are two outputs from this script: (1) the new summary statistics object saved as "split_sumstats.RData" and (2) the number of SNP subsets created which is saved as "num_SNP_sets.txt". The number of subsets created determines how many jobs must be ran (see part 3).
+There are two outputs from this script: (1) the new summary statistics files saved as "/split_sumstats/sumstats*.txt" and (2) the number of SNP subsets created which is saved as "num_SNP_sets.txt". The number of subsets created determines how many jobs must be ran (see part 3).
 
 ### Part 2: Create an R script that runs the specific GWAS you wish to perform
 
