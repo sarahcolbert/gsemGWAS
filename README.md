@@ -3,7 +3,7 @@
 
 This github repository outlines a framework used to run genomic-SEM for a large number of SNP sets. By breaking the summary statistics input up into smaller sets of SNPs, one can submit many jobs at once that do not require as much memory or time as it would take to run every SNP model in a single job.
 
-These scripts should be run in a directory which already contains:
+These scripts should be run in a directory which already contains the following contents. Pre-steps 1 and 2 will set up your directory to meet these requirements.
 
 * an RData file with the LDSC matrix (LDSCoutput.RData)
 * an RData file with the G-SEM generated summary statistics (sumstats.RData)
@@ -11,10 +11,19 @@ These scripts should be run in a directory which already contains:
 * a "code" directory
 * a "split_sumstats" directory
 * a "results" directory
-  * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc.  
+  * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc. If subdirectories are necessary, you will need to create these yourself after configuration. 
 
-You should also make sure to check what your objects are saved as, so that they are compatible with these scripts.
-For example, these summary statistics are saved in a dataframe called sumstats and the covariance matrix is called LDSCoutput.
+You should also make sure to check what your R objects are saved as, so that they are compatible with these scripts.
+For example, the summary statistics are saved in an R dataframe called sumstats and the covariance matrix is called LDSCoutput.
+
+## Pre-Step 1: Downloading and running the pipeline
+
+Navigate to the directory where you want to download the repository. The repository can then be downloaded using git: <br>
+> git clone https://github.com/sarahcolbert/gsemGWAS <br>
+
+## Pre-Step 2: Editing the config file
+To edit the config file navigate to the repository's directory and add the required information to the file. You can then run the config file using:  <br>
+> source ./config <br>
 
 ### Part 1: Splitting up the summary statistics
 
