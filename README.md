@@ -14,7 +14,7 @@ These scripts should be run in a directory which already contains:
   * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc.  
 
 You should also make sure to check what your objects are saved as, so that they are compatible with these scripts.
-For example, these summary statistics are saved as sumstats and the covariance matrix is saved as LDSCoutput.
+For example, these summary statistics are saved in a dataframe called sumstats and the covariance matrix is called LDSCoutput.
 
 ### Part 1: Splitting up the summary statistics
 
