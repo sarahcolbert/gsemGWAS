@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH -J multi-GWAS
 #SBATCH --qos=preemptable
-#SBATCH --mem=10gb
-#SBATCH -t 12:00:00
+#SBATCH --mem=2gb
+#SBATCH -t 02:00:00
 #SBATCH --output=./outerr/set.%a.out
 #SBATCH --error=./outerr/set.%a.err
 #SBATCH --array=0-#OF SNP SUBSETS-1
