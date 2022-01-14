@@ -28,6 +28,8 @@ An example of this script is located in [multi_GWAS.R](https://github.com/sarahc
 
 An example script using a 3 factor user GWAS is also available in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/multi_GWAS_3Fs.R). If you wish to use this script make sure to save the filename as multi_GWAS.R to be compatible with subsequent scripts.
 
+** NOTE: If you are using the userGWAS function, I have found that jobs run better serially. You should therefore included "parallel = FALSE" as an option in your code.
+
 
 ### Part 3: Run the GWAS for each subset of SNPs.
 Using the bash script [multi_GWAS.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/multi_GWAS.bash), you can run a separate job for each set of SNPs that will create an R script using that subset of SNPs, run that Rscript and then save the output into a results directory. In this script make sure to set the number of jobs to the number of SNPs subsets you want to run (see note above about considering how many jobs you can/should run).
