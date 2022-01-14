@@ -20,3 +20,5 @@ export sumstats_dir="${project_dir}split_sumstats/"
 mkdir ${sumstats_dir}
 export results_dir="${project_dir}results/"
 mkdir ${results_dir}
+cp ${sumstats_file} ./
+cp ${ldsc_file} ./
