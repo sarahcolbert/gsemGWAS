@@ -25,12 +25,7 @@ CommonFactor$lhs <- NULL
 CommonFactor$op <- NULL
 CommonFactor$rhs <- NULL
 
-### remove any rows that produce a warning
-print("removing SNPs that produce a warning...")
-CF <- filter(CommonFactor, warning==0)
-print("SNPs with warnings removed")
-
 print("writing results to file...")
-write.table(CF, file="./results/NUMBER.txt", row.names=FALSE, quote=FALSE)
+write.table(CommonFactor, file="./results/NUMBER.txt", row.names=FALSE, quote=FALSE)
 print("analysis for set NUMBER complete")
 
