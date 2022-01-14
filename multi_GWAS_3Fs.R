@@ -24,7 +24,7 @@ model <- 'F1 =~ NA*Trait1 + Trait2
              F3~SNP'
 
 ### run a user model for one subset of SNPs
-CommonFactor <- userGWAS(covstruc=LDSCoutput, SNPs=split_sumstats, model=model, sub=c("F1~SNP", "F2~SNP", "F3~SNP"))
+CommonFactor <- userGWAS(covstruc=LDSCoutput, SNPs=split_sumstats, model=model, sub=c("F1~SNP", "F2~SNP", "F3~SNP"), parallel = FALSE)
 
 ### remove unnecessary columns from the dataframe
 CommonFactor[[1]]$free <- NULL
