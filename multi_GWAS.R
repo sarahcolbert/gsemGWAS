@@ -1,5 +1,4 @@
 ### load necessary packages
-library(devtools)
 require(GenomicSEM)
 library(dplyr)
 
