@@ -1,7 +1,7 @@
 # Optimizing genomic-SEM GWAS for faster completion
 
 
-This github repository outlines a framework used to run genomic-SEM for a large number of SNP sets.
+This github repository outlines a framework used to run genomic-SEM for a large number of SNP sets. By breaking the summary statistics input up into smaller sets of SNPs, one can submit many jobs at once that do not require as much memory or time as it would take to run every SNP model in a single job.
 
 These scripts should be run in a directory which already contains:
 
