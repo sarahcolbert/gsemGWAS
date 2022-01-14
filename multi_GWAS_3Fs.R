@@ -26,38 +26,14 @@ model <- 'F1 =~ NA*Trait1 + Trait2
 ### run a user model for one subset of SNPs
 CommonFactor <- userGWAS(covstruc=LDSCoutput, SNPs=split_sumstats, model=model, sub=c("F1~SNP", "F2~SNP", "F3~SNP"), parallel = FALSE)
 
-### remove unnecessary columns from the dataframe
-CommonFactor[[1]]$free <- NULL
-CommonFactor[[1]]$label <- NULL
-CommonFactor[[1]]$lhs <- NULL
-CommonFactor[[1]]$op <- NULL
-CommonFactor[[1]]$rhs <- NULL
+### subset results from first common factor and write to csv file
+CF1 <- CommonFactor[[1]]
+write.csv(CF1, file="./results/F1_sumstats/NUMBER.csv", row.names=FALSE)
 
-### remove any rows that produce a warning
-CF1 <- filter(CommonFactor[[1]], warning==0)
+### subset results from second common factor and write to csv file
+CF2 <- CommonFactor[[2]]
+write.csv(CF2, file="./results/F2_sumstats/NUMBER.csv", row.names=FALSE)
 
-write.table(CF1, file="./results/F1_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
-
-### remove unnecessary columns from the dataframe
-CommonFactor[[2]]$free <- NULL
-CommonFactor[[2]]$label <- NULL
-CommonFactor[[2]]$lhs <- NULL
-CommonFactor[[2]]$op <- NULL
-CommonFactor[[2]]$rhs <- NULL
-
-### remove any rows that produce a warning
-CF2 <- filter(CommonFactor[[2]], warning==0)
-
-write.table(CF2, file="./results/F2_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
-
-### remove unnecessary columns from the dataframe
-CommonFactor[[3]]$free <- NULL
-CommonFactor[[3]]$label <- NULL
-CommonFactor[[3]]$lhs <- NULL
-CommonFactor[[3]]$op <- NULL
-CommonFactor[[3]]$rhs <- NULL
-
-### remove any rows that produce a warning
-CF3 <- filter(CommonFactor[[3]], warning==0)
-
-write.table(CF3, file="./results/F3_sumstats/NUMBER.txt", row.names=FALSE, quote=FALSE)
+### subset results from third common factor and write to csv file
+CF3 <- CommonFactor[[3]]
+write.csv(CF3, file="./results/F3_sumstats/NUMBER.csv", row.names=FALSE)
