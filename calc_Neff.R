@@ -1,5 +1,5 @@
 ### Read in summary statistics for latent factor which you wish to calculate Neff for
-factor <- read.table("FNUMBER_sumstats.txt", header = TRUE)
+factor <- read.csv("FNUMBER_sumstats.csv", header = TRUE)
 
 ### Restrict to MAF of 40% and 10%
 factor<-subset(factor, factor$MAF <= .4 & factor$MAF >= .1)
