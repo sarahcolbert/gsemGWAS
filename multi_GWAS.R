@@ -17,14 +17,6 @@ print("running models...")
 CommonFactor <- commonfactorGWAS(covstruc=LDSCoutput, SNPs=split_sumstats)
 print("GWAS completed")
 
-### remove unnecessary columns from the dataframe
-CommonFactor$free <- NULL
-CommonFactor$label <- NULL
-CommonFactor$lhs <- NULL
-CommonFactor$op <- NULL
-CommonFactor$rhs <- NULL
-
 print("writing results to file...")
-write.table(CommonFactor, file="./results/NUMBER.txt", row.names=FALSE, quote=FALSE)
+write.csv(CommonFactor, file="./results/NUMBER.csv", row.names=FALSE)
 print("analysis for set NUMBER complete")
-

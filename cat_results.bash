@@ -12,14 +12,10 @@ date
 hostname
 
 ### concatenate all results files
-cat ./results/*.txt > ./results/CF_stats.txt
-### remove error and warning columns
-awk '{$11=$12=""; print $0}' ./results/CF_stats.txt > ./results/CF_sumstats.txt
+cat ./results/*.csv > ./results/CF_stats.csv
 ### remove intermediate files
-rm ./results/CF_stats.txt
 rm ./code/*.R
-### remove all lines that aren't the first occurrence of Z_Estimate (used to indicate header line)
+### remove all lines that contains Z_Estimate after the first occurence (used to indicate header line)
 sed -i '1!{/Z_Estimate/d;}' ./results/CF_sumstats.txt
-
 
 date
