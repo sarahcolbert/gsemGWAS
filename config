@@ -12,7 +12,7 @@ export ldsc_file="/path/to/LDSCoutput.RData"
 
 ## DO NOT MODIFY
 export code_dir="${project_dir}code/"
-mkdir ${processed_dir}
+mkdir ${code_dir}
 export outerr_dir="${project_dir}outerr/"
 mkdir ${outerr_dir}
 export sumstats_dir="${project_dir}split_sumstats/"
