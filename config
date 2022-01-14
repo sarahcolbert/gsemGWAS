@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Please put the full path to this directory
+# e.g. if the config file path is "/home/Projects/my_gsem/config"
+#then project_dir="/home/Projects/my_gsem/"
+export project_dir="/path/to/proj_dir/"
+
+## put location for sumstats RData file
+export sumstats_file="/path/to/sumstats.RData"
+## put location for LDSC matrix file
+export ldsc_file="/path/to/LDSCoutput.RData"
+
+## DO NOT MODIFY
+export code_dir="${project_dir}code/"
+mkdir ${processed_dir}
+export outerr_dir="${project_dir}outerr/"
+mkdir ${outerr_dir}
+export sumstats_dir="${project_dir}split_sumstats/"
+mkdir ${sumstats_dir}
+export results_dir="${project_dir}results/"
+mkdir ${results_dir}
