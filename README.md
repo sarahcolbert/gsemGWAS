@@ -3,12 +3,12 @@
 
 This github repository outlines a framework used to run genomic-SEM for a large number of SNP sets. By breaking the summary statistics input up into smaller sets of SNPs, one can submit many jobs at once that do not require as much memory or time as it would take to run every SNP model in a single job.
 
-## Pre-Step 1: Downloading and running the pipeline
+### Pre-Step 1: Downloading and running the pipeline
 
 Navigate to the directory where you want to download the repository. The repository can then be downloaded using git: <br>
 > git clone https://github.com/sarahcolbert/gsemGWAS <br>
 
-## Pre-Step 2: Editing the config file
+### Pre-Step 2: Editing the config file
 
 These scripts should be run in a directory which already contains the following contents. Running the config file will set up your directory to meet these requirements.
 
@@ -32,7 +32,7 @@ Using the script [split_sumstats.R](https://github.com/sarahcolbert/quickSEMGWAS
 
 There are two outputs from this script: (1) the new summary statistics files saved as "/split_sumstats/sumstats*.txt" and (2) the number of SNP subsets created which is saved as "num_SNP_sets.txt". The number of subsets created determines how many jobs must be ran (see part 3).
 
-### Step 2: Create an R script that runs the specific GWAS you wish to perform
+## Step 2: Create an R script that runs the specific GWAS you wish to perform
 
 An example of this script is located in [multi_GWAS.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.R). This script only runs for one subset of SNPs, identified using the variable "NUMBER", which is later replaced. This script will be the basis for all runs using each subset of SNPs. One thing to note is that this script identifies a common factor GWAS, but can be used with user-specified GWASs as long as the script is edited.
 
@@ -41,13 +41,13 @@ An example script using a 3 factor user GWAS is also available in [multi_GWAS_3F
 ** NOTE: If you are using the userGWAS function, I have found that jobs run better serially (this is a good solution if you are coming across the error _Error in { : task 1 failed - "infinite or missing values in 'x'"_). You should therefore included "parallel = FALSE" as an option in your code (see line 27 in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS_3Fs.R)).
 
 
-### Step 3: Run the GWAS for each subset of SNPs.
+## Step 3: Run the GWAS for each subset of SNPs.
 Using the bash script [multi_GWAS.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.bash), you can run a separate job for each set of SNPs that will create an R script using that subset of SNPs, run that Rscript and then save the output into a results directory. In this script make sure to set the number of jobs to the number of SNPs subsets you want to run (see note above about considering how many jobs you can/should run).
 
-### Step 4: Compile your results files
+## Step 4: Compile your results files
 Use the script [cat_results.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/cat_results.bash) to combine all of your results files into one set of summary statistics for a common factor. This file will be saved as CF_sumstats.csv.
 
 To compile your results into multiple sets of summary statistics for multiple factors, you may wish to use the script [cat_results_3Fs.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/cat_results_3Fs.bash).
 
-### Step 5: Calculate Neff for latent factors
+## Step 5: Calculate Neff for latent factors
 You can calculate the effective sample size for each latent factor using the scripts [calc_Neff.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/calc_Neff.R) and [calc_Neff.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/calc_Neff.bash). Effective sample size is calculated using the code from the [genomic-SEM wiki](https://github.com/MichelNivard/GenomicSEM/wiki/4.-Common-Factor-GWAS) and the equation developed by [Mallard et al.](https://www.biorxiv.org/content/10.1101/603134v1.abstract)
