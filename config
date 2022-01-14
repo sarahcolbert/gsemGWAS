@@ -3,6 +3,7 @@
 # Please put the full path to this directory
 # e.g. if the config file path is "/home/Projects/my_gsem/config"
 #then project_dir="/home/Projects/my_gsem/"
+# it is important that you include a backslash at the end of this path
 export project_dir="/path/to/proj_dir/"
 
 ## put location for sumstats RData file
