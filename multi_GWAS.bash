@@ -3,8 +3,6 @@
 #SBATCH --qos=preemptable
 #SBATCH --mem=10gb
 #SBATCH -t 12:00:00
-#SBATCH --nodes=1
-#SBATCH --ntasks=4
 #SBATCH --output=./outerr/set.%a.out
 #SBATCH --error=./outerr/set.%a.err
 #SBATCH --array=0-#OF SNP SUBSETS-1
