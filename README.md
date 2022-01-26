@@ -24,7 +24,7 @@ To edit the config file navigate to the repository's directory and add the requi
 > source ./config <br>
 
 You should also make sure to check what your R objects are saved as, so that they are compatible with these scripts.
-For example, the summary statistics are saved in an R dataframe called sumstats and the covariance matrix is called LDSCoutput.
+For example, the summary statistics are saved in an R dataframe called sumstats and the covariance matrix data is in an object called LDSCoutput.
 
 ## Step 1: Splitting up the summary statistics
 
