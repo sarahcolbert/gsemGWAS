@@ -1,7 +1,7 @@
 # Optimizing genomic-SEM GWAS for faster completion
 
 
-This github repository outlines a framework used to run genomic-SEM for a large number of SNP sets. By breaking the summary statistics input up into smaller sets of SNPs, one can submit many jobs at once that do not require as much memory or time as it would take to run every SNP model in a single job. I am working on adding my code for identifying Qsnps, but you should include chisq = TRUE in userGWAS() to be able to eventually calculate Qsnp.
+This github repository outlines a framework used to run genomic-SEM for a large number of SNP sets. By breaking the summary statistics input up into smaller sets of SNPs, one can submit many jobs at once that do not require as much memory or time as it would take to run every SNP model in a single job. commonfactorGWAS() automatically calculates the heterogeneity estimate for each SNP, but userGWAS() does not. I am working on adding my code for calculating Qsnp for user models, but you should include chisq = TRUE in userGWAS() to be able to eventually calculate Qsnp.
 
 ### Pre-Step 1: Downloading and running the pipeline
 
