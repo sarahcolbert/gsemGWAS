@@ -10,15 +10,13 @@ split_sumstats <- read.table("./split_sumstats/sumstatsNUMBER.txt", header = TRU
 load("LDSCoutput.RData")
 
 ### identify model
-model <- 'F1 =~ NA*Trait1 + Trait2
-             F2 =~ NA*Trait3
-             F3 =~ NA*Trait4 + Trait5
+### use unit loading identification
+model <- 'F1 =~ Trait1 + Trait2
+             F2 =~ Trait3
+             F3 =~ Trait4 + Trait5
              F1~~F3
              F2~~F3
              F1~~F2
-             F1~~1*F1
-             F2~~1*F2
-             F3~~1*F3
              F1~SNP
              F2~SNP
              F3~SNP'
