@@ -15,10 +15,9 @@ These scripts should be run in a directory which already contains the following 
 * the location of the RData file with the LDSC matrix
 * the location of the RData file with the G-SEM generated summary statistics
 * an "outerr" directory
-* a "code" directory
 * a "split_sumstats" directory
 * a "results" directory
-  * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc. If subdirectories are necessary, you will need to create these yourself after configuration. 
+  * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc. If subdirectories are necessary, you will need to create these yourself after configuration.
 
 To edit the config file navigate to the repository's directory and add the required information to the file. You can then run the config file using:  <br>
 > source ./config <br>
@@ -46,7 +45,7 @@ There are two outputs from this script: (1) the new summary statistics files sav
 
 ## Step 2: Create an R script that runs the specific GWAS you wish to perform
 
-An example of this script is located in [multi_GWAS.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.R). This script only runs for one subset of SNPs, identified using the variable "NUMBER", which is later replaced. This script will be the basis for all runs using each subset of SNPs. One thing to note is that this script identifies a common factor GWAS, but can be used with user-specified GWASs as long as the script is edited.
+An example of this script is located in [multi_GWAS.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.R). This script only runs for one subset of SNPs, identified using the variable "cc", which is replaced with the job array later. This script will be the basis for all runs using each subset of SNPs. One thing to note is that this script identifies a common factor GWAS, but can be used with user-specified GWASs as long as the script is edited.
 
 An example script using a 3 factor user GWAS is also available in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS_3Fs.R). If you wish to use this script make sure to save the filename as multi_GWAS.R to be compatible with subsequent scripts.
 
@@ -54,7 +53,7 @@ An example script using a 3 factor user GWAS is also available in [multi_GWAS_3F
 
 
 ## Step 3: Run the GWAS for each subset of SNPs.
-Using the bash script [multi_GWAS.sbatch](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.sbatch), you can run a separate job for each set of SNPs that will create an R script using that subset of SNPs, run that Rscript and then save the output into a results directory. In this script make sure to set the number of jobs to the number of SNPs subsets you want to run (see note above about considering how many jobs you can/should run). Depending on the size of your SNP sets you will also probably need to change how much memory and time you request.
+Using the bash script [multi_GWAS.sbatch](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.sbatch), you can run a separate job for each set of SNPs that will run an R script using that subset of SNPs and then save the output into a results directory. In this script make sure to set the number of jobs to the number of SNPs subsets you want to run (see note above about considering how many jobs you can/should run). Depending on the size of your SNP sets you will also probably need to change how much memory and time you request.
 
 ## Step 4: Compile your results files
 Use the script [cat_results.bash](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/cat_results.bash) to combine all of your results files into one set of summary statistics for a common factor. This file will be saved as CF_sumstats.csv.
