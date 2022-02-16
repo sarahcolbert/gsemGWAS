@@ -34,6 +34,12 @@ Using the script [split_sumstats.R](https://github.com/sarahcolbert/quickSEMGWAS
 Rscript ./scripts/split_sumstats.R
 ```
 
+If you'd prefer a different size for your SNP sets (in this example we would prefer SNP sets of 1000), you should edit the script before running it like so:
+
+```
+sed -i 's/5000/1000/g' ./scripts/split_sumstats.R
+```
+
 There are two outputs from this script: (1) the new summary statistics files saved as "/split_sumstats/sumstats*.txt" and (2) the number of SNP subsets created which is saved as "num_SNP_sets.txt". The number of subsets created determines how many jobs must be ran (see part 3).
 
 ## Step 2: Create an R script that runs the specific GWAS you wish to perform
