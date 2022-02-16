@@ -1,6 +1,5 @@
 ### load necessary packages
 require(GenomicSEM)
-library(dplyr)
 
 ### load the summary statistics RData file in the split form
 print("loading summary statistics from set NUMBER...")
