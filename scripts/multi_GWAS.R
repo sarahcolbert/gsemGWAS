@@ -8,7 +8,7 @@ print("finished loading summary statistics from set NUMBER")
 
 ### load the LDSC covariance matrix
 print("loading LDSC covariance matrix...")
-load("LDSCoutput.RData")
+load(paste(Sys.getenv("ldsc_file")))
 print("finished loading LDSC covariance matrix")
 
 ### run a common factor model for one subset of SNPs
