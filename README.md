@@ -28,16 +28,18 @@ For example, the summary statistics are saved in an R dataframe called sumstats 
 
 ## Step 1: Splitting up the summary statistics
 
-Using the script [split_sumstats.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/split_sumstats.R) in R. This script chooses to split the SNPs up into sets of 5000. If you wish, you can change how large you would like each set of SNPs to be. The larger the sets, the less jobs you will run, but the longer those jobs will take. You should also take into consideration how many jobs you are able to submit/should submit as to not hog resources, particularly if using multiple CPUs. If you are satisfied with SNP sets of 5,000 you can go ahead and run the code:
+Using the script [split_sumstats.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/split_sumstats.R) in R. This script chooses to split the SNPs up into sets of 5,000. If you wish, you can change how large you would like each set of SNPs to be. The larger the sets, the less jobs you will run, but the longer those jobs will take. You should also take into consideration how many jobs you are able to submit/should submit as to not hog resources, particularly if using multiple CPUs.
 
-```
-Rscript ./scripts/split_sumstats.R
-```
-
-If you'd prefer a different size for your SNP sets (in this example we would prefer SNP sets of 1000), you should edit the script before running it like so:
+If you'd prefer a different size for your SNP sets (in this example we would prefer SNP sets of 1,000), you should edit the script before running it like so:
 
 ```
 sed -i 's/5000/1000/g' ./scripts/split_sumstats.R
+```
+
+Once you have changed the number of SNPs in a set, or if you are satisfied with SNP sets of 5,000 and skip the above step, you can go ahead with running the code:
+
+```
+Rscript ./scripts/split_sumstats.R
 ```
 
 There are two outputs from this script: (1) the new summary statistics files saved as "/split_sumstats/sumstats*.txt" and (2) the number of SNP subsets created which is saved as "num_SNP_sets.txt". The number of subsets created determines how many jobs must be ran (see part 3).
