@@ -45,7 +45,7 @@ There are two outputs from this script: (1) the new summary statistics files sav
 
 ## Step 2: Create an R script that runs the specific GWAS you wish to perform
 
-An example of this script is located in [multi_GWAS.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.R). This script only runs for one subset of SNPs, identified using the variable "cc", which is replaced with the job array later. This script will be the basis for all runs using each subset of SNPs. One thing to note is that this script identifies a common factor GWAS, but can be used with user-specified GWASs as long as the script is edited.
+An example of a script used to conduct a common factor GWAS is located in [multi_GWAS.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.R). This script runs for one subset of SNPs at a time, identified using the variable "cc", which is replaced with the job array. One thing to note is that this script identifies a common factor GWAS, but can be used with user-specified GWASs as long as the script is edited.
 
 An example script using a 3 factor user GWAS is also available in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS_3Fs.R). If you wish to use this script make sure to save the filename as multi_GWAS.R to be compatible with subsequent scripts.
 
