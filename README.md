@@ -12,8 +12,8 @@ Navigate to the directory where you want to download the repository. The reposit
 
 These scripts should be run in a directory which already contains the following contents. Running the config file will set up your directory to meet these requirements.
 
-* an RData file with the LDSC matrix (LDSCoutput.RData)
-* an RData file with the G-SEM generated summary statistics (sumstats.RData)
+* the location of the RData file with the LDSC matrix
+* the location of the RData file with the G-SEM generated summary statistics
 * an "outerr" directory
 * a "code" directory
 * a "split_sumstats" directory
