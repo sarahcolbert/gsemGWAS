@@ -5,8 +5,8 @@ load(paste(Sys.getenv("sumstats_file")))
 split_sumstats <- split(sumstats, (as.numeric(rownames(sumstats))-1) %/% 5000)
 ### save each data frame as its own text file
 ### you can delete these files after you're done with the analyses
-lapply(names(split_sumstats), function(x){write.table(split_sumstats[[x]], file = paste("./split_sumstats/sumstats", x,".txt", sep = ""), quote = FALSE, row.names=FALSE)})
+lapply(names(split_sumstats), function(x){write.table(split_sumstats[[x]], file = paste(Sys.getenv("sumstats_dir"),"sumstats", x,".txt", sep = ""), quote = FALSE, row.names=FALSE)})
 
 ### determine number of SNP sets and then save to a file
 num_SNP_sets <- length(split_sumstats)
-write.table(num_SNP_sets, file="num_SNP_sets.txt", row.names=FALSE, col.names=FALSE, quote=FALSE)
+write.table(num_SNP_sets, file= paste(Sys.getenv("sumstats_dir"),"num_SNP_sets.txt", sep = ""), row.names=FALSE, col.names=FALSE, quote=FALSE)
