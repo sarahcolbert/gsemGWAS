@@ -16,10 +16,10 @@ cc="${SLURM_ARRAY_TASK_ID}"
 
 ### replace "NUMBER" variable in R script with the number of the SNP set the job is running
 ### you can delete these scripts after you're done with the analyses
-sed "s/NUMBER/$cc/g" multi_GWAS.R > ./code/$cc.R
+sed "s/NUMBER/$cc/g" ${project_dir}scripts/multi_GWAS.R > ${code_dir}$cc.R
 
 ### run the Rscript
 ml load R
-Rscript ./code/$cc.R
+Rscript ${code_dir}$cc.R
 
 date
