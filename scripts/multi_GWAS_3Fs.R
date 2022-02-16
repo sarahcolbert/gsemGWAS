@@ -22,7 +22,7 @@ model <- 'F1 =~ Trait1 + Trait2
              F3~SNP'
 
 ### run a user model for one subset of SNPs
-CommonFactor <- userGWAS(covstruc=LDSCoutput, SNPs=split_sumstats, model=model, sub=c("F1~SNP", "F2~SNP", "F3~SNP"), modelchi= TRUE, parallel = FALSE)
+CommonFactor <- userGWAS(covstruc=LDSCoutput, SNPs=split_sumstats, model=model, sub=c("F1~SNP", "F2~SNP", "F3~SNP"), parallel = FALSE)
 
 ### subset results from first common factor and write to csv file
 CF1 <- CommonFactor[[1]]
