@@ -1,7 +1,7 @@
 # Optimizing genomic-SEM GWAS for faster completion
 
 
-This github repository outlines a framework used to run genomic-SEM for a large number of SNP sets. By breaking the summary statistics input up into smaller sets of SNPs, one can submit many jobs at once that do not require as much memory or time as it would take to run every SNP model in a single job. commonfactorGWAS() automatically calculates the heterogeneity estimate for each SNP, but userGWAS() does not. I am working on adding my code for calculating Qsnp for user models, but you should include chisq = TRUE in userGWAS() to be able to eventually calculate Qsnp.
+This github repository outlines a framework used to run genomic-SEM for a large number of SNP sets. By breaking the summary statistics input up into smaller sets of SNPs, one can submit many jobs at once that do not require as much memory or time as it would take to run every SNP model in a single job. commonfactorGWAS() automatically calculates the heterogeneity estimate for each SNP, but userGWAS() does not. I am working on adding my code for calculating Qsnp for user models, but you should include chisq = TRUE in userGWAS() to be able to eventually calculate Qsnp. (The newest version of GSEM no longer makes the modelchi function optional, so as long as you have updated to v0.0.4 you do not need to add this flag).
 
 ### Pre-Step 1: Downloading and running the pipeline
 
@@ -36,7 +36,7 @@ There are two outputs from this script: (1) the new summary statistics files sav
 
 An example of this script is located in [multi_GWAS.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.R). This script only runs for one subset of SNPs, identified using the variable "NUMBER", which is later replaced. This script will be the basis for all runs using each subset of SNPs. One thing to note is that this script identifies a common factor GWAS, but can be used with user-specified GWASs as long as the script is edited.
 
-An example script using a 3 factor user GWAS is also available in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS_3Fs.R). If you wish to use this script make sure to save the filename as multi_GWAS.R to be compatible with subsequent scripts. If you do not need to calculate heterogeneity estimates for SNPs you can change the modelchi flag to false to reduce run time (but this is not recommended).
+An example script using a 3 factor user GWAS is also available in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS_3Fs.R). If you wish to use this script make sure to save the filename as multi_GWAS.R to be compatible with subsequent scripts.
 
 ** NOTE: If you are using the userGWAS function, I have found that jobs run better serially (this is a good solution if you are coming across the error _Error in { : task 1 failed - "infinite or missing values in 'x'"_). You should therefore included "parallel = FALSE" as an option in your code (see line 27 in [multi_GWAS_3Fs.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS_3Fs.R)).
 
