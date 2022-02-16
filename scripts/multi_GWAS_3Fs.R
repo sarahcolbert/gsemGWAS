@@ -7,7 +7,7 @@ library(dplyr)
 split_sumstats <- read.table("./split_sumstats/sumstatsNUMBER.txt", header = TRUE)
 
 ### load the LDSC covariance matrix
-load("LDSCoutput.RData")
+load(paste(Sys.getenv("ldsc_file")))
 
 ### identify model
 ### use unit loading identification
