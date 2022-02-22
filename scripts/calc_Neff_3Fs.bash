@@ -13,14 +13,10 @@ date
 hostname
 
 ### set variable that will be the number of factors
-cc="${SLURM_ARRAY_TASK_ID}"
-
-### replace "NUMBER" variable in R script with the number of the factor the job is running
-### you can delete these scripts after you're done with the analyses
-sed "s/NUMBER/$cc/g" calc_Neff.R > ./code/calc_Neff_F$cc.R
+i="${SLURM_ARRAY_TASK_ID}"
 
 ### run the Rscript
-ml load R
-Rscript ./code/calc_Neff_F$cc.R
+ml load r
+Rscript ${project_dir}scripts/calc_Neff_3Fs.R
 
 date

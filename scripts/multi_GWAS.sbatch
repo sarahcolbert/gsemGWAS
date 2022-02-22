@@ -15,7 +15,7 @@ hostname
 cc="${SLURM_ARRAY_TASK_ID}"
 
 ### run the Rscript
-ml load R
+ml load r
 Rscript ${project_dir}scripts/multi_GWAS.R
 
 date
