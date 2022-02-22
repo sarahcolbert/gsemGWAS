@@ -14,11 +14,7 @@ hostname
 ### create variable that is equal to the number of factors (3)
 cc="${SLURM_ARRAY_TASK_ID}"
 
-### concatenate all results files
-cat ./results/F"$cc"_sumstats/*.csv > ./results/F"$cc"_sumstats/F"$cc"_stats.csv
-### remove intermediate files
-rm ./code/*.R
-### remove all lines that contain Z_Estimate after the first occurence (used to indicate header line)
-sed -i '1!{/Z_Estimate/d;}' ./results/F"$cc"_sumstats/F"$cc"_sumstats.csv
+### concatenate all results files and only keep header from first file
+awk 'FNR>1 || NR==1' ./results/F"$cc"_sumstats/*.csv > ./results/F"$cc"_stats.csv
 
 date
