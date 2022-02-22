@@ -1,6 +1,5 @@
 #!/bin/bash
 #SBATCH -J Neff
-#SBATCH --qos=preemptable
 #SBATCH --mem=10gb
 #SBATCH -t 01:00:00
 #SBATCH --output=./outerr/neff.%a.out

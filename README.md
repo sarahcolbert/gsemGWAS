@@ -62,3 +62,6 @@ To compile your results into multiple sets of summary statistics for multiple fa
 
 ## Step 5: Calculate Neff for latent factors
 You can calculate the effective sample size for each latent factor using the scripts [calc_Neff.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/calc_Neff.R) and [calc_Neff.sbatch](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/calc_Neff.sbatch). Effective sample size is calculated using the code from the [genomic-SEM wiki](https://github.com/MichelNivard/GenomicSEM/wiki/4.-Common-Factor-GWAS) and the equation developed by [Mallard et al.](https://www.biorxiv.org/content/10.1101/603134v1.abstract)
+
+## Step 6: Qsnps
+You can create a results file with significant QSNPs (qsnps.csv) and a file with the summary statistics with significant Qsnps removed (CF_sumstats_cleaned.csv) using the script [pull_Qsnps.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/pull_Qsnps.R). 
