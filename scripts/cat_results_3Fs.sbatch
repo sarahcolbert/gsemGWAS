@@ -4,8 +4,8 @@
 #SBATCH --time=02:00:00
 #SBATCH -n 1
 #SBATCH --mem=1000
-#SBATCH --output=./outerr/combine.out
-#SBATCH --error=./outerr/combine.err
+#SBATCH --output=./outerr/combine_Factor%a.out
+#SBATCH --error=./outerr/combine_Factor%a.err
 #SBATCH --array=1-3
 
 date
