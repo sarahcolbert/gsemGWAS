@@ -10,6 +10,6 @@ date
 hostname
 
 ### concatenate all results files and only keep header from first file
-awk 'FNR>1 || NR==1' ./results/*.csv > ./results/CF_sumstats.csv
+awk 'FNR>1 || NR==1' ${results_dir}*.csv > ${results_dir}CF_sumstats.csv
 
 date

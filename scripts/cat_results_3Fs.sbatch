@@ -15,6 +15,6 @@ hostname
 cc="${SLURM_ARRAY_TASK_ID}"
 
 ### concatenate all results files and only keep header from first file
-awk 'FNR>1 || NR==1' ./results/F"$cc"_sumstats/*.csv > ./results/F"$cc"_stats.csv
+awk 'FNR>1 || NR==1' ${results_dir}F"$cc"_sumstats/*.csv > ${results_dir}F"$cc"_stats.csv
 
 date
