@@ -53,7 +53,7 @@ An example script using a 3 factor user GWAS is also available in [multi_GWAS_3F
 
 
 ## Step 3: Run the GWAS for each subset of SNPs.
-Using the bash script [multi_GWAS.sbatch](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.sbatch), you can run a separate job for each set of SNPs that will run an R script using that subset of SNPs and then save the output into a results directory. In this script make sure to set the number of jobs to the number of SNPs subsets you want to run (see note above about considering how many jobs you can/should run). Depending on the size of your SNP sets you will also probably need to change how much memory and time you request.
+Using the bash script [multi_GWAS.sbatch](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/multi_GWAS.sbatch), you can run a separate job for each set of SNPs that will run an R script using that subset of SNPs and then save the output into a results directory. In this script make sure to set the number of jobs to the number of SNPs subsets you want to run (see note above about considering how many jobs you can/should run). Depending on the size of your SNP sets you will also probably need to change how much memory and time you request. You should run this script from the parent directory (i.e., the gsemGWAS directory).
 
 ## Step 4: Compile your results files
 Use the script [cat_results.sbatch](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/cat_results.sbatch) to combine all of your results files into one set of summary statistics for a common factor. This file will be saved as CF_sumstats.csv.
