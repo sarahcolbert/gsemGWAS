@@ -19,7 +19,7 @@ These scripts should be run in a directory which already contains the following 
 * an "outerr" directory
 * a "split_sumstats" directory
 * a "results" directory
-  * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc. If subdirectories are necessary, you will need to create these yourself after configuration.
+  * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc. *If subdirectories are necessary, you will need to create these yourself after configuration.*
 
 To edit the config file navigate to the repository's directory and add the required information to the file. The config file will need to be run each time you open a new shell. You can then run the config file using:  <br>
 > source ./config <br>
