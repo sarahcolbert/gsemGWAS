@@ -21,7 +21,7 @@ These scripts should be run in a directory which already contains the following 
 * a "results" directory
   * a subdirectory for each factor if you wish to run multiple, for example: "results/F1_sumstats", "results/F2_sumstats", etc. If subdirectories are necessary, you will need to create these yourself after configuration.
 
-To edit the config file navigate to the repository's directory and add the required information to the file. You can then run the config file using:  <br>
+To edit the config file navigate to the repository's directory and add the required information to the file. The config file will need to be run each time you open a new shell. You can then run the config file using:  <br>
 > source ./config <br>
 
 You should also make sure to check what your R objects are saved as, so that they are compatible with these scripts.
@@ -61,6 +61,8 @@ Using the bash script [multi_GWAS.sbatch](https://github.com/sarahcolbert/quickS
 Use the script [cat_results.sbatch](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/cat_results.sbatch) to combine all of your results files into one set of summary statistics for a common factor. This file will be saved as CF_sumstats.csv.
 
 To compile your results into multiple sets of summary statistics for multiple factors, you may wish to use the script [cat_results_3Fs.sbatch](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/cat_results_3Fs.sbatch).
+
+Please check that columns match up and all necessary results are in the concatenated files before deleting the results files split by sumstats sets.
 
 ## Step 5: Calculate Neff for latent factors
 You can calculate the effective sample size for each latent factor using the scripts [calc_Neff.R](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/calc_Neff.R) and [calc_Neff.sbatch](https://github.com/sarahcolbert/quickSEMGWAS/blob/master/scripts/calc_Neff.sbatch). Effective sample size is calculated using the code from the [genomic-SEM wiki](https://github.com/MichelNivard/GenomicSEM/wiki/4.-Common-Factor-GWAS) and the equation developed by [Mallard et al.](https://www.biorxiv.org/content/10.1101/603134v1.abstract)
