@@ -13,6 +13,7 @@ hostname
 
 ### set variable that will be the number of the SNP set
 export cc="${SLURM_ARRAY_TASK_ID}"
+source ./config
 
 ### run the Rscript
 ml load r
